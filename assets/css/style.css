@@ -1,0 +1,116 @@
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.modal button {
+    background-color: rgb(10, 96, 107);
+}
+
+.jumbotron {
+    padding: 25px 0 10px 0;
+    border: 12px double white;
+    margin: 0 0 15px 0;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+}
+
+.jumbotron p {
+    font-size: 1rem;
+    font-family: 'Concert One', cursive;
+}
+
+.questions-div h3 {
+    font-size: 1.45rem;
+}
+
+.list-group-item {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: left;
+}
+
+.list-group-item:hover {
+    box-shadow: inset 0px 0px 12px 5px #fff;
+    transition: ease-in-out;
+    transition-duration: .2s;
+}
+
+.time-div h6 {
+    display: inline;
+}
+
+.time-div {
+    text-align: right;
+    margin: 25px 12px;
+}
+
+/* --- media queries --- */
+@media only screen and (min-width: 768px) {
+
+    .jumbotron {
+        padding: 25px 0 15px 0;
+        margin: 10px 10px 25px 10px;
+    }
+
+    .display-4 {
+        font-size: 3.5rem;
+    }
+
+    .jumbotron p {
+        font-size: 1.25rem;
+    }
+
+    .questions-div h3 {
+        font-size: 1.75rem;
+    }
+
+    .list-group-item {
+       padding: 28px 24px;
+       font-size: 1.2em;
+       margin-bottom: 10px;
+    }
+
+    .time-div h6 {
+        font-size: 1.2rem;
+    }
+
+    .time-div {
+        margin: 35px 22px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+
+   .jumbotron {
+        padding: 35px 35px;
+        margin: 25px 55px 30px 55px;
+        background-color: #fffffff2;
+        border: 20px double #e9ecef;
+        border-radius: 5px;
+    }
+
+    body {
+        background-color: #e9ecef;
+    }
+
+    .questions-div h3 {
+        font-size: 2rem;
+    }
+
+    .list-group-item {
+        padding: 25px 24px;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+     }
+
+     .time-div {
+        margin: 35px 75px;
+    }
+
+}

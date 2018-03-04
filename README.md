@@ -1,2 +1,2 @@
-# trivia-game
-Trivia Game
+# Trivia Quiz
+Trivia Quiz
