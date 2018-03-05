@@ -5,50 +5,56 @@
     <title>Trivia Quiz</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Concert+One|Josefin+Sans:400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i" rel="stylesheet">
 </head>
 
 <body>
     <!-- Modal -->
-    <!-- <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog modal-lg" role="document">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Trivia Quiz</h5>
         </div>
-        <div class="modal-body">This body explains the content of the quiz and the instructions for completing the quiz. This body explains the content of the quiz and the instructions for completing the quiz. This body explains the content of the quiz and the instructions for completing the quiz. This body explains the content of the quiz and the instructions for completing the quiz.</div>
+        <div class="modal-body">This trivia quiz tests your knowledge on some of your favorite movie and TV stars! The quiz is multiple-choice, and you will have 25 seconds to answer each question. The quiz will display a single question until you answer it or until the time runs out.<br><br>Are you ready to play?</div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Begin Quiz!</button>
         </div>
         </div>
     </div>
-    </div> -->
+    </div>
     <header>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
             <h1 class="display-4">Trivia Quiz</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <p class="lead">How well do you know your favorite TV and movie stars?</p>
             </div>
         </div>
     </header>
 
     <div class="container">
+
+        <div class="you-win my-5">Correct!</div>
+        <div class="no-time my-5">You ran out of time!<br>The answer was:</div>
+        <div class="you-lose my-5">Incorrect!<br>The answer was:</div>
+
         <div class="questions-div mb-4">
-            <h3>Between 2000 and 2006, how many tropical storms occurred on the east coast?</h3>
+            <h3 class="question"></h3>
         </div>
 
         <div class="list-group">
-            <button type="button" class="list-group-item">Cras justo odio</button>
-            <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-            <button type="button" class="list-group-item">Morbi leo risus</button>
-            <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+            <button type="button" class="list-group-item 0"></button>
+            <button type="button" class="list-group-item 1"></button>
+            <button type="button" class="list-group-item 2"></button>
+            <button type="button" class="list-group-item 3"></button>
         </div>
+
 
     </div><!-- end .container -->
     
-    <div class="time-div font-italic">
-        <h6>Time Remaining: </h6><h6 class="time">8</h6><h6> seconds</h6>
-    </div>
+    <footer class="time-div font-italic">
+        <h6>Time Remaining: </h6><h6 class="time"></h6><h6> seconds</h6>
+    </footer>
    
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

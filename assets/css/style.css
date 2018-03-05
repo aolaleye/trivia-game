@@ -4,22 +4,24 @@ body {
 }
 
 .modal button {
-    background-color: rgb(10, 96, 107);
+    background-color: rgb(26, 111, 162);
 }
 
 .jumbotron {
     padding: 25px 0 10px 0;
     border: 12px double white;
     margin: 0 0 15px 0;
+    background-color: #d0d0d0;
 }
 
 .display-4 {
     font-size: 2.5rem;
+    text-shadow: -1px 0px 6px #fff;
+    color: rgb(25, 61, 82);
 }
 
 .jumbotron p {
     font-size: 1rem;
-    font-family: 'Concert One', cursive;
 }
 
 .questions-div h3 {
@@ -29,16 +31,24 @@ body {
 .list-group-item {
     cursor: pointer;
     border: none;
-    border-radius: 5px;
     margin-bottom: 5px;
     color: #fff;
     text-align: left;
+    background-color: rgb(12, 121, 148);
 }
 
-.list-group-item:hover {
-    box-shadow: inset 0px 0px 12px 5px #fff;
-    transition: ease-in-out;
-    transition-duration: .2s;
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+
+.you-win,
+.no-time,
+.you-lose {
+    display: none;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #5f5959;
 }
 
 .time-div h6 {
@@ -71,13 +81,13 @@ body {
     }
 
     .list-group-item {
-       padding: 28px 24px;
+       padding: 24px 24px;
        font-size: 1.2em;
        margin-bottom: 10px;
     }
 
     .time-div h6 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 
     .time-div {
@@ -87,30 +97,57 @@ body {
 
 @media only screen and (min-width: 1300px) {
 
-   .jumbotron {
-        padding: 35px 35px;
-        margin: 25px 55px 30px 55px;
-        background-color: #fffffff2;
-        border: 20px double #e9ecef;
-        border-radius: 5px;
+    body {
+        background-color: #a7a7a7;
+        border: 5px dotted #fff;
+        min-height: 100vh;
     }
 
-    body {
-        background-color: #e9ecef;
+    .jumbotron {
+        padding: 35px 35px;
+        margin: 35px 55px 30px 55px;
+        background-color: #fffffff2;
+        border: 1px dotted #a7a7a7;
+        box-shadow: -9px 8px 16px 2px #737373; 
+    }
+
+    .display-4 {
+        text-shadow: -2px 1px 3px #737373;
     }
 
     .questions-div h3 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        text-shadow: -3px 3px 3px #737373;
+        color: #fff;
     }
 
     .list-group-item {
-        padding: 25px 24px;
+        padding: 20px 24px;
         font-size: 1.2em;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
+        box-shadow: -5px 9px 14px 2px #737373;
      }
 
+     .list-group-item:hover,
+     .list-group-item:focus {
+        box-shadow: inset 0px 0px 12px 5px #fff;
+    }
+
+    .you-win,
+    .no-time,
+    .you-lose {
+    display: none;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    text-shadow: -3px 3px 3px #737373;
+    }
+
      .time-div {
-        margin: 35px 75px;
+        margin: 35px 55px 30px 55px;
+        padding: 15px 35px;
+        text-shadow: -3px 3px 3px #737373;
+        color: #fff;
     }
 
 }
