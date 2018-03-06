@@ -53,6 +53,12 @@ body {
     color: #5f5959;
 }
 
+.play-again {
+    background-color: #808080;
+    border-color: #808080;
+    color: #fff;
+}
+
 .time-div h6 {
     display: inline;
 }

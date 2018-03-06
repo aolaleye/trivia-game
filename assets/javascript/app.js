@@ -42,11 +42,11 @@ var quiz = {
 
 var score = 0;
 var answerRevealed = false;
-var maxQuestionTime = 26;
+var maxQuestionTime = 21;
 var questionTimer;
 
   function reset() {
-    maxQuestionTime = 26; 
+    maxQuestionTime = 21; 
     answerRevealed = false;
     $(".you-win").hide();
     $(".times-up").hide();
@@ -65,15 +65,18 @@ function nextQuestionTimeout(NextObjectKey) {
             console.log('timeout is over');
             reset();
             printQuiz(NextObjectKey);
-        }, 2000);
+        }, 3000);
     } else {
         setTimeout(function() {
             clearInterval(questionTimer);
+            $(".you-win").hide();
+            $(".times-up").hide();
+            $(".you-lose").hide();
             $(".question").hide()
             $(".time-div").hide();
             $(".list-group").hide();
             finalScore();
-        }, 2000);
+        }, 3000);
     }
 }
 
@@ -82,7 +85,10 @@ function printQuiz(ObjectKey) {
 
     $(".question").text(quiz[ObjectKey].question);
 
-    for (i = 0; i < quiz[ObjectKey].options.length; i++) {
+    $.each(quiz[ObjectKey].options, function(i, val) {
+
+        val = quiz[ObjectKey].options[i];
+
         $("." + i + "").text(quiz[ObjectKey].options[i]); 
         if (i === quiz[ObjectKey].answer) {
             $("." + i + "").on("click", function() {
@@ -95,7 +101,9 @@ function printQuiz(ObjectKey) {
                     nextQuestionTimeout(parseInt(ObjectKey) + 1);
                 }
             });
-        } else if (i !== quiz[ObjectKey].answer) {
+        } 
+        
+        if (i !== quiz[ObjectKey].answer) {
             $("." + i + "").on("click", function() {
                 $(".you-lose").show();
                 $(".question").hide();
@@ -126,22 +134,27 @@ function printQuiz(ObjectKey) {
             }
             questionTimer = setInterval(decrement, 1000);
           }
-    
         setTimer();
-    }
+    })
 
 }
 
 
-// $(".btn").click(function() {
+$(".btn").click(function() {
 printQuiz("1");
         
-// })
+})
 
 
 function finalScore() {
-   $(".final-score").append("You got " + score + " out of " + Object.keys(quiz).length + " questions correct.").show();
+   $(".final-score").text("You got " + score + " out of " + Object.keys(quiz).length + " questions correct.").show();
+   $(".play-again").show();
 }
+
+$(".play-again button").click(function() {
+    reset();
+    printQuiz("1");
+})
 
 
 
