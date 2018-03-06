@@ -16,7 +16,7 @@ var quiz = {
     1: {
         question: 'Of the five "Transformers" movie installments, how many starred actor Shia LaBeouf?',
         options: ['Two', 'Three', 'Four', 'Five'],
-        answer: 1 //<--- index number of options[] 
+        answer: 1 //<--- index number of options array 
         },
     2: {
         question: "What is the name of the Big Bang Theory's character played by actor Jim Parsons?",
@@ -43,31 +43,47 @@ var quiz = {
 var score = 0;
 var answerRevealed = false;
 var maxQuestionTime = 26;
+var questionTimer;
+
+  function reset() {
+    maxQuestionTime = 26; 
+    answerRevealed = false;
+    $(".you-win").hide();
+    $(".times-up").hide();
+    $(".you-lose").hide();
+    $(".question").show();
+    $(".time-div").show();
+    $(".list-group-item").show();
+}
+
+        
+function nextQuestionTimeout(NextObjectKey) {
+    $(".time-div").hide();
+    clearInterval(questionTimer);
+    if (parseInt(NextObjectKey) < 6) {
+        setTimeout(function() {
+            console.log('timeout is over');
+            reset();
+            printQuiz(NextObjectKey);
+        }, 2000);
+    } else {
+        setTimeout(function() {
+            clearInterval(questionTimer);
+            $(".question").hide()
+            $(".time-div").hide();
+            $(".list-group").hide();
+            finalScore();
+        }, 2000);
+    }
+}
 
 
 function printQuiz(ObjectKey) {
 
     $(".question").text(quiz[ObjectKey].question);
 
-    var questionTimer = setInterval(decrement, 1000);
-
-    function decrement() {
-        maxQuestionTime--;
-        $(".time").text(maxQuestionTime);
-
-        if (maxQuestionTime === 0 && answerRevealed === false) {
-            $(".no-time").show();
-            $(".question").hide();
-            $(".list-group-item").hide();
-            $("." + quiz[ObjectKey].answer + "").show();
-            answerRevealed = true;
-            clearInterval(questionTimer);
-        }
-    }
-    
     for (i = 0; i < quiz[ObjectKey].options.length; i++) {
         $("." + i + "").text(quiz[ObjectKey].options[i]); 
-
         if (i === quiz[ObjectKey].answer) {
             $("." + i + "").on("click", function() {
                 if (answerRevealed === false) {
@@ -76,7 +92,7 @@ function printQuiz(ObjectKey) {
                     $(".list-group-item").hide();
                     $("." + quiz[ObjectKey].answer + "").show();
                     score++;
-                    clearInterval(questionTimer);
+                    nextQuestionTimeout(parseInt(ObjectKey) + 1);
                 }
             });
         } else if (i !== quiz[ObjectKey].answer) {
@@ -86,13 +102,56 @@ function printQuiz(ObjectKey) {
                 $(".list-group-item").hide();
                 $("." + quiz[ObjectKey].answer + "").show();
                 answerRevealed = true;
-                clearInterval(questionTimer);
+                nextQuestionTimeout(parseInt(ObjectKey) + 1);
             });
-        } 
+        }
+
+        function decrement() {
+            maxQuestionTime--;
+            $(".time").text(maxQuestionTime);
+            if (maxQuestionTime === 0) {
+                clearInterval(questionTimer);
+                $(".times-up").show();
+                $(".question").hide();
+                $(".list-group-item").hide();
+                $("." + quiz[ObjectKey].answer + "").show();
+                answerRevealed = true;
+                nextQuestionTimeout(parseInt(ObjectKey) + 1);
+            }
+        }
+        
+        function setTimer() {
+            if (questionTimer) {
+                clearInterval(questionTimer);
+            }
+            questionTimer = setInterval(decrement, 1000);
+          }
+    
+        setTimer();
     }
 
 }
+
+
+// $(".btn").click(function() {
 printQuiz("1");
+        
+// })
+
+
+function finalScore() {
+   $(".final-score").append("You got " + score + " out of " + Object.keys(quiz).length + " questions correct.").show();
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

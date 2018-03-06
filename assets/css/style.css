@@ -1,6 +1,7 @@
 
 body {
     font-family: 'Josefin Sans', sans-serif;
+    color: #5d5d5d;
 }
 
 .modal button {
@@ -43,8 +44,9 @@ body {
 }
 
 .you-win,
-.no-time,
-.you-lose {
+.times-up,
+.you-lose,
+.final-score {
     display: none;
     text-align: center;
     font-size: 1.8rem;
@@ -99,7 +101,7 @@ body {
 
     body {
         background-color: #a7a7a7;
-        border: 5px dotted #fff;
+        border: 8px dotted #fff;
         min-height: 100vh;
     }
 
@@ -134,8 +136,9 @@ body {
     }
 
     .you-win,
-    .no-time,
-    .you-lose {
+    .times-up,
+    .you-lose,
+    .final-score {
     display: none;
     text-align: center;
     font-size: 3rem;
